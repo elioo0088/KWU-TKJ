@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KWU TKJ - Layanan Servis, Cetak & Retail</title>
+    
+    <!-- PETUNJUK EDIT:
+         File CSS luar dihubungkan di sini. Pastikan nama file sesuai dengan file CSS Anda (style.css).
+    -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font / Ikon Opsional (Google Fonts / FontAwesome dapat ditambahkan di sini) -->
+</head>
+<body>
+
+    <!-- ==========================================
+         1. HEADER & NAVIGASI
+         PETUNJUK EDIT: Ubah nama toko/sekolah pada 'navbar-logo'
+         dan sesuaikan tautan menu di dalam 'nav-links'.
+    =========================================== -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-logo">KWU TKJ <span>Tech</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#servis">Servis</a></li>
+                    <li><a href="#cetak">Cetak Dokumen</a></li>
+                    <li><a href="#toko">Toko & Bekas</a></li>
+                    <li><a href="#edukasi">Pusat Edukasi</a></li>
+                    <li><a href="#login" class="btn-login" id="btnOpenLogin">Login Teknisi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. HERO SECTION & CEK STATUS SERVIS
+         PETUNJUK EDIT: Ubah judul utama, deskripsi, 
+         dan placeholder pada form pencarian status.
+    =========================================== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Solusi Digital & Perbaikan Perangkat KWU TKJ</h1>
+            <p>Layanan profesional servis HP & laptop, percetakan cepat, serta penjualan aksesoris berkualitas.</p>
+            
+            <!-- Box Lacak Servis Cepat -->
+            <div class="tracking-box">
+                <h3>Cek Status Perbaikan Perangkat</h3>
+                <form id="formCekStatus">
+                    <!-- ID 'inputKodeServis' digunakan oleh script.js untuk pencarian data -->
+                    <input type="text" id="inputKodeServis" placeholder="Masukkan Kode Nota / Nomor HP (Contoh: TKJ-1024)" required>
+                    <button type="submit" class="btn-primary">Lacak Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. MODUL SERVIS & JEMPUT-ANTAR
+         PETUNJUK EDIT: Form ini mengambil data diagnosis awal 
+         dan opsi layanan jemput-antar dari pelanggan.
+    =========================================== -->
+    <section id="servis" class="section">
+        <div class="container">
+            <h2>Layanan Perbaikan & Diagnosis Mandiri</h2>
+            <p class="section-desc">Pilih masalah perangkat Anda untuk mendapatkan estimasi biaya awal.</p>
+
+            <form id="formDiagnosisServis" class="form-card">
+                <div class="form-group">
+                    <label for="jenisPerangkat">Jenis Perangkat:</label>
+                    <select id="jenisPerangkat" required>
+                        <option value="">-- Pilih Perangkat --</option>
+                        <option value="hp">Smartphone / HP</option>
+                        <option value="laptop">Laptop / Komputer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="gejalaKerusakan">Gejala Kerusakan:</label>
+                    <!-- PETUNJUK EDIT: Opsi pilihan dapat ditambah/dikurangi sesuai kebutuhan -->
+                    <select id="gejalaKerusakan" required>
+                        <option value="">-- Pilih Gejala --</option>
+                        <option value="layar">Layar Pecah / Matures / Garis</option>
+                        <option value="baterai">Baterai Drop / Rusak</option>
+                        <option value="mati_total">Mati Total / Tidak Bisa Charge</option>
+                        <option value="os">Sistem Crash / Kena Virus / Install Ulang</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="layananJemput">
+                    <label for="layananJemput">Gunakan Layanan Jemput-Antar Perangkat ke Rumah</label>
+                </div>
+
+                <!-- Hasil estimasi biaya akan ditampilkan secara otomatis melalui script.js -->
+                <div id="hasilEstimasi" class="estimasi-box" style="display: none;">
+                    <p>Estimasi Biaya: <strong id="biayaEstimasi">Rp0</strong></p>
+                    <p>Estimasi Pengerjaan: <strong id="waktuEstimasi">-</strong></p>
+                </div>
+
+                <button type="submit" class="btn-secondary">Adukan Perbaikan & Buat Janji</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. MODUL CETAK DOKUMEN MANDIRI
+         PETUNJUK EDIT: Bagian untuk pengunggahan file 
+         dan pengaturan spesifikasi cetak.
+    =========================================== -->
+    <section id="cetak" class="section bg-light">
+        <div class="container">
+            <h2>Layanan Cetak Dokumen Mandiri</h2>
+            
+            <form id="formCetak" class="form-card">
+                <div class="form-group">
+                    <label for="fileCetak">Unggah Berkas Dokumen (PDF/DOCX):</label>
+                    <input type="file" id="fileCetak" accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jenisKertas">Jenis Kertas:</label>
+                        <select id="jenisKertas">
+                            <option value="70">A4 70gr (HVS)</option>
+                            <option value="80">A4 80gr (HVS)</option>
+                            <option value="photo">Kertas Foto Glossy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipeWarna">Warna Cetak:</label>
+                        <select id="tipeWarna">
+                            <option value="hitam">Hitam Putih</option>
+                            <option value="warna">Full Color</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jumlahHalaman">Jumlah Lembar:</label>
+                        <input type="number" id="jumlahHalaman" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="total-pembayaran-box">
+                    <p>Total Biaya Cetak: <strong id="totalBiayaCetak">Rp0</strong></p>
+                </div>
+
+                <button type="button" id="btnBayarCetak" class="btn-primary">Proses & Bayar via QRIS</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. TOKO AKSESORIS & MARKETPLACE BEKAS
+         PETUNJUK EDIT: Tambah atau edit elemen '.product-card' 
+         sesuai barang yang dijual di toko KWU TKJ.
+    =========================================== -->
+    <section id="toko" class="section">
+        <div class="container">
+            <h2>Aksesoris & Perangkat Bekas Teruji</h2>
+            
+            <div class="product-grid">
+                <!-- Barang 1: Aksesoris Baru -->
+                <div class="product-card">
+                    <span class="badge badge-new">Baru</span>
+                    <img src="https://via.placeholder.com/150" alt="Kabel Data Type-C" class="product-img">
+                    <h3>Kabel Data Fast Charging Type-C</h3>
+                    <p class="price">Rp25.000</p>
+                    <p class="stock">Stok: 15 unit</p>
+                    <button class="btn-sm btn-beli" data-id="1" data-nama="Kabel Data Type-C" data-harga="25000">Beli Sekarang</button>
+                </div>
+
+                <!-- Barang 2: Unit Bekas Teruji -->
+                <div class="product-card">
+                    <span class="badge badge-second">Bekas Teruji</span>
+                    <img src="https://via.placeholder.com/150" alt="Laptop Bekas Siap Pakai" class="product-img">
+                    <h3>Laptop Core i3 RAM 8GB (Garansi Toko)</h3>
+                    <p class="price">Rp2.400.000</p>
+                    <p class="stock">Stok: 1 unit</p>
+                    <button class="btn-sm btn-beli" data-id="2" data-nama="Laptop Core i3" data-harga="2400000">Rincian & Beli</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. PUSAT EDUKASI TEKNIS
+         PETUNJUK EDIT: Tambah artikel/tips singkat 
+         karya siswa TKJ di bagian ini.
+    =========================================== -->
+    <section id="edukasi" class="section bg-light">
+        <div class="container">
+            <h2>Pusat Edukasi & Tip Perawatan Mandiri</h2>
+            
+            <div class="article-grid">
+                <article class="article-card">
+                    <h3>5 Cara Merawat Baterai Laptop Agar Awet</h3>
+                    <p>Panduan praktis menjaga kesehatan baterai laptop dari teknisi siswa TKJ...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                </article>
+
+                <article class="article-card">
+                    <h3>Pertolongan Pertama Saat HP Terkena Air</h3>
+                    <p>Langkah-langkah darurat yang harus segera dilakukan sebelum diikat ke service center...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         7. FOOTER
+         PETUNJUK EDIT: Sesuaikan alamat, nomor telepon, 
+         dan hak cipta sekolah.
+    =========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Kewirausahaan TKJ. Seluruh hak cipta dilindungi.</p>
+            <p>Alamat: Gedung Laboratorium TKJ SMK | WhatsApp CS: 0812-3456-7890</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         8. MODAL / POP-UP (PEMBAYARAN QRIS & LOGIN)
+         PETUNJUK EDIT: Struktur modal ini akan dimunculkan/disembunyikan
+         secara otomatis menggunakan JavaScript (script.js).
+    =========================================== -->
+    
+    <!-- Modal QRIS Dinamis -->
+    <div id="modalQris" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Pembayaran QRIS Dinamis</h3>
+            <p>Pindai kode QR di bawah ini menggunakan aplikasi M-Banking atau e-Wallet Anda:</p>
+            <div class="qris-image-container">
+                <!-- Gambar QRIS placeholder, dapat dihubungkan ke API Generator QRIS di script.js -->
+                <img src="https://via.placeholder.com/200?text=Scan+QRIS" alt="Kode QRIS" id="imgQris">
+            </div>
+            <p>Total Bayar: <strong id="nominalQris">Rp0</strong></p>
+            <p class="status-waiting">Menunggu Konfirmasi Pembayaran Otomatis...</p>
+        </div>
+    </div>
+
+    <!-- PETUNJUK EDIT: File JavaScript dihubungkan pada bagian akhir body agar halaman memuat HTML & CSS terlebih dahulu -->
+    <script src="script.js"></script>
+</body>
+</html>
