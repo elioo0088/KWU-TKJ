@@ -1,0 +1,426 @@
+/* ==========================================
+   1. VARIABEL & RESET DASAR
+   PETUNJUK EDIT: Ubah kode warna di bawah ini 
+   untuk mengganti tema warna seluruh situs.
+=========================================== */
+:root {
+    --primary-color: #0056b3;       /* Warna utama (Biru) */
+    --primary-hover: #003d82;       /* Warna tombol saat di-hover */
+    --secondary-color: #28a745;     /* Warna hijau (Aksi/Sukses) */
+    --bg-light: #f8f9fa;            /* Warna latar belakang terang */
+    --text-dark: #333333;           /* Warna teks utama */
+    --text-muted: #6c757d;          /* Warna teks sekunder */
+    --border-color: #dee2e6;        /* Warna garis tepi */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --radius: 8px;                  /* Kebulatan sudut kartu/tombol */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   2. HEADER & NAVIGASI
+=========================================== */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar-logo span {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   3. HERO SECTION & LACAK SERVIS
+=========================================== */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.tracking-box {
+    background: #ffffff;
+    color: var(--text-dark);
+    padding: 1.8rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tracking-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.tracking-box form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tracking-box input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+/* ==========================================
+   4. TATA LETAK SEKSI & FORMULIR
+=========================================== */
+.section {
+    padding: 3.5rem 0;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+.estimasi-box, .total-pembayaran-box {
+    background-color: #e9ecef;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* ==========================================
+   5. TOMBOL & BADGE
+=========================================== */
+.btn-primary, .btn-secondary, .btn-login, .btn-sm {
+    display: inline-block;
+    padding: 0.75rem 1.3rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    width: 100%;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+}
+
+.btn-login:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.badge-new { background-color: var(--primary-color); }
+.badge-second { background-color: #fd7e14; }
+
+/* ==========================================
+   6. GRID PRODUK & ARTIKEL
+=========================================== */
+.product-grid, .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.product-card, .article-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: calc(var(--radius) - 2px);
+    margin-bottom: 0.8rem;
+}
+
+.product-card h3, .article-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 0.2rem;
+}
+
+.stock {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.article-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ==========================================
+   7. FOOTER
+=========================================== */
+.footer {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin-bottom: 0.4rem;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   8. MODAL / POP-UP (QRIS & LOGIN)
+=========================================== */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: var(--radius);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.qris-image-container img {
+    margin: 1.2rem 0;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: var(--radius);
+}
+
+.status-waiting {
+    font-size: 0.85rem;
+    color: #d97706;
+    margin-top: 0.8rem;
+    font-style: italic;
+}
+
+/* ==========================================
+   9. DESAIN RESPONSIF (TAMPILAN HP/TABLET)
+=========================================== */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .tracking-box form {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+}
